@@ -1,11 +1,10 @@
 from sqlalchemy import Column, Integer, String
-from db.base_class import Base
+from ..db.base_class import Base
 
-class User(Base):
-    __tablename__ = "id_generate"
+class SequenceIdGenerator(Base):
+    __tablename__ = "sequence_id_generator"
     
-    id = Column(Integer, primary_key=True, index=True)
-    current_max_id = Column(Integer, unique=True, index=True, nullable=False)
+    id = Column(Integer, primary_key=True, autoincrement=True)
+    current_max_id = Column(Integer)
     step = Column(Integer)
-    version = Column(String)
     biz_type = Column(String)

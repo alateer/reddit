@@ -1,2 +1,2 @@
-from app.db.session import engine
+from .session import engine
 
