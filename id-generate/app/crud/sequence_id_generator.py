@@ -1,6 +1,5 @@
-from sqlalchemy.orm import Session
 from ..models.sequence_id_generator import SequenceIdGenerator
-from ..schemas.id_generate import IdGenerate
+from ..schemas.id_generate import CreateIdGenerate
 from ..db.session import Database
 
 database = Database()
@@ -15,7 +14,7 @@ class SequenceIdGenerateMapper():
         items = self.session.query(SequenceIdGenerator).all()
         return items
 
-    def create_item(self, create: IdGenerate):
+    def create_item(self, create: CreateIdGenerate):
         db_item = SequenceIdGenerator(
             current_max_id = create.current_max_id,
             step = create.step,
